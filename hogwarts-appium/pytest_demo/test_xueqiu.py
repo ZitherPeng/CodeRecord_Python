@@ -4,6 +4,7 @@ from appium.webdriver.webdriver import WebDriver
 from selenium.webdriver.support.wait import WebDriverWait
 
 
+
 class DriverFactory(object):
     """ Generate the caps and set up AppiumDriver. """
 
