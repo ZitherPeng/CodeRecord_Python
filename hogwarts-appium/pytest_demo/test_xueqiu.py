@@ -51,10 +51,6 @@ class ElementUtil(object):
         element.send_keys(value)
         return self
 
-    # 内部类
-
-
-
 
 class BasePage(ElementUtil):
     """
@@ -80,3 +76,5 @@ class MainClass(object):
     if __name__ == '__main__':
         pass
 
+class TestSuite:
+    pass
