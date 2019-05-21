@@ -13,6 +13,7 @@ def operating_browser():
     yield
     print('close browser')
 
+
 @pytest.fixture(scope='module')
 def exit():
     print('exit...')
@@ -24,6 +25,13 @@ def test_search_function():
 
 
 class Test_Fixture:
+
+    @pytest.fixture(params=[1, 2, 3, 'zither'])
+    def param_provide(self, request):
+        return request.param
+
+    def test_params(self, param_provide):
+        print('para is %s ' % param_provide )
 
     @pytest.mark.usefixtures('login')
     def test_search(self):

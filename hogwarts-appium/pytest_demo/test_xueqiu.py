@@ -1,8 +1,8 @@
+import pytest
 from appium import webdriver
 from appium.webdriver.webdriver import MobileWebElement
 from appium.webdriver.webdriver import WebDriver
 from selenium.webdriver.support.wait import WebDriverWait
-
 
 
 class DriverFactory(object):
@@ -73,8 +73,26 @@ class MainClass(object):
 
         driver.quit()
 
-    if __name__ == '__main__':
-        pass
 
 class TestSuite:
-    pass
+
+    # def test_main(self):
+    #     MainClass().choose_stock()
+
+    @pytest.fixture(scope='module')
+    def driver(self, request):
+        driver = DriverFactory().create_driver('Android')
+
+        def driver_quit():
+            driver.quit()
+
+        request.addfinalizer(driver_quit)
+        return driver
+
+    def test_choose_stock(self, driver):
+        BasePage(driver) \
+            .click('id', 'skip_ad') \
+            .click('id', 'tv_search') \
+            .typing('id', 'search_input_text'
+                    , 'alibaba') \
+            .click('id', 'follow_btn')
