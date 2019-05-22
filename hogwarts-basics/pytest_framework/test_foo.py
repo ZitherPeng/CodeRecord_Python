@@ -42,11 +42,15 @@ class TestClass:
 
     def test_one(self):
         x = "this"
-        assert "h5" in x
+        assert "th" in x
+
 
     def test_two(self):
-        x = "hello"
-        assert "hello1" == x
+        x = 'hello'
+        pytest.assume(0)
+        pytest.assume(x in 'hell1o1')
+        pytest.assume(0)
+
 
     def test_three(self):
         a = "hello"
