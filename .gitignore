@@ -108,3 +108,8 @@ venv.bak/
 
 # MacOS files
 .DS_Store
+
+# pytest
+report.html
+report/
+result/
